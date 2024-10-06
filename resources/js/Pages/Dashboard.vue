@@ -3,6 +3,7 @@
   import AppLayout from '@/Layouts/AppLayout.vue';
   import Welcome from '@/Components/Welcome.vue';
   import BmButton from '@/bmSystem/Components/Buttons/BmButton.vue';
+  import AlertSuccessful from '@/bmSystem/Components/Forms/AlertSuccessful.vue';
   import { 
     Badge,
     TheCard,
@@ -17,7 +18,7 @@
         Dashboard
       </h2>
     </template>
-    
+    <AlertSuccessful class="my-6" v-show="$page.props.flash.successful" :message="$page.props.flash.successful"/>
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="overflow-hidden sm:rounded-lg">
@@ -72,7 +73,14 @@ export default {
       flash: this.$page.props.flash,
     }
   },
-  
+  computed: {
+    // Accede a los flash messages de Laravel a través de Inertia
+    flashMessage() {
+      console.log(this.$page.props.flash.successful);
+      
+      return this.$page.props.flash.successful || '';
+    }
+  },
   methods:{
     createRecord(){
       this.$inertia.visit('/patients/create')

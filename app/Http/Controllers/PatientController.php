@@ -26,7 +26,7 @@ class PatientController extends Controller
             'blood_pressure' => $request->blood_pressure
         ]);
 
-        return redirect('/dashboard')->with('successful', __('Paciente creado correctamente'));
+        return redirect()->route('dashboard')->with('successful', 'Paciente creado correctamente');
     }
 
 }

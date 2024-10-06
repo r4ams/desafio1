@@ -27,7 +27,7 @@
                                         name="name"
                                         label="Ingresar nombres"
                                     />
-                                    <div v-if="this.form.errors.name" class="text-red-500">{{this.form.errors.name}}</div>
+                                    <div v-if="form.errors.name" class="text-red-500">{{form.errors.name}}</div>
                                 </div>
                                 <div class="py-2 items-center">
                                     <InputNew
@@ -38,7 +38,7 @@
                                         name="dui"
                                         label="Ingresar Dui"
                                     />
-                                    <div v-if="this.form.errors.dui" class="text-red-500">{{this.form.errors.dui}}</div>
+                                    <div v-if="form.errors.dui" class="text-red-500">{{form.errors.dui}}</div>
                                 </div>
                             </div>
                             <div class="h-auto grid grid-cols-2 gap-4 content-center">
@@ -46,21 +46,21 @@
                                     <select class="w-full p-2.5 border border-flatBlue-500 rounded-3xl outline-none
                                         text-gray-700 text-sm mt-1 block w-full" v-model="form.gender" placeholder="Select a country">
                                         <option disabled value="" selected>Seleccione un Genero</option>
-                                        <option v-for="(gender,index) in this.collectionGender" :value="gender.value" :key="index">
+                                        <option v-for="(gender,index) in collectionGender" :value="gender.value" :key="index">
                                             {{gender.name}}
                                         </option>
                                     </select>
-                                    <div v-if="this.form.errors.gender" class="text-red-500">{{this.form.errors.gender}}</div>
+                                    <div v-if="form.errors.gender" class="text-red-500">{{form.errors.gender}}</div>
                                 </div>
                                 <div class="py-2 items-center">
                                     <select class="w-full p-2.5 border border-flatBlue-500 rounded-3xl outline-none
                                         text-gray-700 text-sm mt-1 block w-full" v-model="form.blood_type" placeholder="Select a country">
                                         <option disabled value="" selected>Seleccione un Tipo de Sangre</option>
-                                        <option v-for="(blood_type,index) in this.collectionBloodType" :value="blood_type.value" :key="index">
+                                        <option v-for="(blood_type,index) in collectionBloodType" :value="blood_type.value" :key="index">
                                             {{blood_type.name}}
                                         </option>
                                     </select>
-                                    <div v-if="this.form.errors.blood_type" class="text-red-500">{{this.form.errors.blood_type}}</div>
+                                    <div v-if="form.errors.blood_type" class="text-red-500">{{form.errors.blood_type}}</div>
                                 </div>
                             </div>
                             <div class="h-auto grid grid-cols-2 gap-4 content-center">
@@ -68,11 +68,11 @@
                                     <select class="w-full p-2.5 border border-flatBlue-500 rounded-3xl outline-none
                                         text-gray-700 text-sm mt-1 block w-full" v-model="form.blood_pressure" placeholder="Select a country">
                                         <option disabled value="" selected>Seleccione una Presion Arterial</option>
-                                        <option v-for="(blood_pressure,index) in this.collectionBloodPressure" :value="blood_pressure.value" :key="index">
+                                        <option v-for="(blood_pressure,index) in collectionBloodPressure" :value="blood_pressure.value" :key="index">
                                             {{blood_pressure.name}}
                                         </option>
                                     </select>
-                                    <div v-if="this.form.errors.blood_pressure" class="text-red-500">{{this.form.errors.blood_pressure}}</div>
+                                    <div v-if="form.errors.blood_pressure" class="text-red-500">{{form.errors.blood_pressure}}</div>
                                 </div>
                             </div>
                             <div class="h-auto grid grid-cols-2 gap-4 content-center text-center mt-10">
