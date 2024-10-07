@@ -101,15 +101,32 @@ export default {
       },
       clickNode: function(node){
         // eslint-disable-next-line
-        console.log(node)
-        if (node?.children) {
-            console.log("El nodo 'address.city' existe y tiene un valor.");
-        } else {
-            console.log("El nodo 'address.city' no existe.");
+        if (!node?.children) {
+          this.isQAModal = true;
+          this.nodeInformation = node;
         }
-        this.isQAModal = true;
-        this.nodeInformation = node;
+      },
+      extraInformation(blood_pressure){
+        if(blood_pressure == 'Alto'){
+          return "Mayor riesgo de accidentes cerebrovasculares, infartos, insuficiencia cardíaca y problemas renales.";
+        }else if(blood_pressure == 'Medio'){
+          return "Bajo riesgo de enfermedades cardiovasculares";
+        }else{
+          return "Posible relación con problemas hormonales, deshidratación o pérdida de sangre.";
+        }
+      },
+      extraInformationType(blood_type){
+        if(blood_type == 'A'){
+          return ['El tipo A es el segundo tipo más común.', 'Se ha vinculado al tipo A con un mayor riesgo de cáncer gástrico y problemas cardíacos, pero también con un menor riesgo de desarrollar malaria.'];
+        }else if(blood_type == 'AB'){
+          return ['El tipo más raro. AB- es particularmente escaso.', 'Se ha relacionado al tipo AB con un mayor riesgo de problemas cognitivos, pero se considera una ventaja en términos de diversidad genética y recepción de sangre.'];
+        }else if(blood_type == 'B'){
+          return ['Es menos común, especialmente en comparación con los tipos O y A.', 'El tipo B está asociado con un mayor riesgo de padecer enfermedades como la diabetes tipo 2.'];
+        }else{
+          return ['Es el tipo de sangre más común en todo el mundo.', 'Estudios sugieren que las personas con tipo O podrían tener menor riesgo de enfermedades cardiovasculares, pero un mayor riesgo de úlceras.'];
+        }
       }
+
     }
 }
 </script>
@@ -218,13 +235,22 @@ export default {
           <h3 class="text-[#0038AE] font-bold text-lg pb-2">
             {{ nodeInformation.full_name }}
           </h3>
-          <p class="text-[#5C6569] text-md">
+          <div class="text-[#5C6569] text-md">
             
             <strong class="pr-2">Genero:</strong>{{ nodeInformation.gender }} <br>
             <strong class="pr-2">Número de dui:</strong>{{ nodeInformation.value }} <br>
             <strong class="pr-2">Tipo de Sangre:</strong>{{ nodeInformation.blood_type }}<br>
-            <strong class="pr-2">Presión:</strong>{{ nodeInformation.blood_pressure }}
-          </p>
+            <strong class="pr-2">Presión:</strong>{{ nodeInformation.blood_pressure }}<br><br>
+            <strong class="pr-2">Información adicional:</strong>
+            <br><br>
+            {{ this.extraInformation(nodeInformation.blood_pressure) }}
+            <br><br>
+            <div>
+              <span>{{ this.extraInformationType(nodeInformation.blood_type)[0] }}</span>
+              <br><br>
+              <span>{{ this.extraInformationType(nodeInformation.blood_type)[1] }}</span>
+            </div>
+          </div>
         </div>
         <div class="flex justify-around pt-5 pb-3">
           <bm-button @click="closeQAModal" :typeNative="'submit'" >Cerrar</bm-button>
