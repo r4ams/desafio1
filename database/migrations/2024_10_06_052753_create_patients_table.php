@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('dui');
-            $table->enum('gender', ['man', 'women']);
+            $table->enum('gender', ['male', 'female']);
             $table->enum('blood_type', ['a', 'b', 'ab', 'o']);
             $table->enum('blood_pressure', ['low', 'medium', 'high']);
             $table->timestamps();

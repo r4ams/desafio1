@@ -10,8 +10,8 @@ class Patient extends Model
     use HasFactory;
 
     const GENDER_LABEL = [
-      'man' => 'Hombre',
-      'women' => 'Mujer'
+      'male' => 'Hombre',
+      'female' => 'Mujer'
     ];
 
     const BLOOD_TYPE_LABEL = [

@@ -45,7 +45,7 @@
             >
               <div class="p-5">
                 <div class="text-center">
-                  <bm-button @click="createRecord()" size="lg">
+                  <bm-button @click="showRecords()" size="lg">
                     Ver Pacientes
                   </bm-button>
                 </div>
@@ -79,11 +79,14 @@ export default {
       console.log(this.$page.props.flash.successful);
       
       return this.$page.props.flash.successful || '';
-    }
+    } 
   },
   methods:{
     createRecord(){
       this.$inertia.visit('/patients/create')
+    },
+    showRecords(){
+      this.$inertia.visit('/patients')
     },
     closeAlert() {
       this.flash.successful = '';

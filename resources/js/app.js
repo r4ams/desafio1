@@ -8,6 +8,8 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 import Notifications from "notiwind";
 import {LoadingPlugin} from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/css/index.css';
+import {tree} from 'vued3tree';
+
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 

@@ -114,8 +114,8 @@ export default {
         url: null,
         placeholder: 'Selecciona un Rol',
         collectionGender: [
-          {name: "Hombre", value: "man"},
-          {name: "Mujer", value: "women"}
+          {name: "Hombre", value: "male"},
+          {name: "Mujer", value: "female"}
         ],
         collectionBloodType: [
           {name: "A", value: "a"},
